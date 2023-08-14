@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rabbit Hole</title>
+    <!-- Vue.js -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <!-- Bulma CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
+</head>
+<body>
+    <div id="app">
+        <h2 class="title is-4">Rabbit Hole Queue</h2>
+        <div v-for="(site, index) in queue" :key="index" class="box">
+            <article class="media">
+                <figure class="media-left">
+                    <p class="image is-64x64">
+                        <img :src="site.thumbnail" alt="Website Thumbnail">
+                    </p>
+                </figure>
+                <div class="media-content">
+                    <div class="content">
+                        <strong>{{ site.title }}</strong>
+                        <br>
+                        <small>{{ site.url }}</small>
+                        <p>{{ site.note }}</p>
+                    </div>
+                </div>
+                <div class="media-right">
+                    <button class="delete" @click="removeSiteFromQueue(index)"></button>
+                </div>
+            </article>
+        </div>
+        <div class="field">
+            <label class="label">Add Note:</label>
+            <div class="control">
+                <input v-model="note" class="input" type="text" placeholder="Why are you saving this?">
+            </div>
+        </div>
+        <div class="field">
+            <div class="control">
+                <button @click="addSiteToQueue" class="button is-primary">Add Current Site</button>
+            </div>
+        </div>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
