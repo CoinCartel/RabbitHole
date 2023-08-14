@@ -17,7 +17,7 @@
   },
   "content_scripts": [
     {
-      "matches": ["<all_urls>"],
+      "matches": ["popup.js","background.js","popup.html",manifest.json],
       "js": ["content.js"]
     }
   ]
